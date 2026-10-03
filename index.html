@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Court Order Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="login-view" class="view">
+  <div class="login-card">
+    <h1>Food Court</h1>
+    <p class="sub">Sign in to order, serve, or manage.</p>
+    <div class="tabs" id="role-tabs">
+      <button data-role="customer" class="active">Customer</button>
+      <button data-role="staff">Staff</button>
+      <button data-role="admin">Admin</button>
+    </div>
+    <form id="login-form" novalidate>
+      <label>Username <input id="l-user" autocomplete="username"></label>
+      <label>Password <input id="l-pass" type="password" autocomplete="current-password"></label>
+      <p id="login-msg" class="msg" role="alert"></p>
+      <button class="btn primary" type="submit">Log in</button>
+    </form>
+    <p id="register-link" class="sub">New here? <a href="#" id="show-register">Create a customer account</a></p>
+    <form id="register-form" class="hidden" novalidate>
+      <label>Full name <input id="r-name"></label>
+      <label>Username <input id="r-user"></label>
+      <label>Password (6+ characters) <input id="r-pass" type="password"></label>
+      <p id="reg-msg" class="msg" role="alert"></p>
+      <button class="btn primary" type="submit">Create account</button>
+      <button class="btn" type="button" id="back-login">Back to log in</button>
+    </form>
+  </div>
+</section>
+
+<section id="app-view" class="view hidden">
+  <header class="topbar">
+    <strong id="who"></strong>
+    <nav id="nav"></nav>
+    <button class="btn" id="logout">Log out</button>
+  </header>
+  <main id="main"></main>
+</section>
+
+<section id="thanks-view" class="view hidden">
+  <div class="ticket">
+    <h1>Thank you!</h1>
+    <p id="thanks-text"></p>
+    <div id="thanks-items"></div>
+    <p class="sub">We'll prepare your order in the order it was received.</p>
+    <button class="btn primary" id="thanks-back">Order again</button>
+    <button class="btn" id="thanks-logout">Log out</button>
+  </div>
+</section>
+
+<div id="toast" role="status"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body>
+</html>
